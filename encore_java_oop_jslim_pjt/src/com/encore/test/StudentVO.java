@@ -1,5 +1,6 @@
 package com.encore.test;
 
+
 /*
  	// single line comment 
  	
@@ -7,6 +8,7 @@ package com.encore.test;
  	-- 업무로직이 없고 데이터만 관리하는 클래스로 변수 및 Setter , Getter 
  	 
 */
+
 public class StudentVO {
 	/*
 		변수(Variable)
@@ -46,31 +48,34 @@ public class StudentVO {
 	 	}
 	 	
 	*/
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
-	public double getHeight() {
-		return height;
-	}
-	public void setHeight(double height) {
-		this.height = height;
-	}
-	public boolean isMarriage() {
-		return isMarriage;
-	}
-	public void setMarriage(boolean isMarriage) {
-		this.isMarriage = isMarriage;
-	}
 	
+	
+	public String getName() { 
+		return name; 
+	} 
+	public void setName(String name) {
+		this.name = name; 
+	} 
+	public int getAge() { 
+		return age; 
+	} public void setAge(int age) { 
+		this.age = age; 
+	} 
+	public double getHeight() { 
+		return height; 
+	} 
+	public void setHeight(double height) { 
+		this.height = height; 
+	}
+	public boolean isMarriage() { 
+		return isMarriage; 
+	} 
+	
+	public void setMarriage(boolean isMarriage) { 
+		this.isMarriage = isMarriage; 
+	}
+	 
+	 
 	
 	
 }

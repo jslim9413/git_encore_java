@@ -8,17 +8,16 @@ public class GuessGameMain {
 		Random random = new Random();
 		int hiddeenNumber = random.nextInt(100) + 1 ;
 		System.out.println("answer >> "+hiddeenNumber);
-		
+		/////////
 		boolean isFlag = false ; // 10번을 채우지 않고 종료될 경우 
 		int cnt = 0 ;            // 횟수를 저장하기 위해서 
-		
+		/////////
 		System.out.println("***********************************");
 		System.out.println("1에서 100사이의 숫자를 맞춰보세요.");
 		System.out.println("10번의 기회가 있습니다.");
 		System.out.println("***********************************");
 		
 		while( !isFlag && cnt++ < 10 ) {
-			
 			System.out.print(cnt+"번째 기회입니다. 숫자를 입력하세요 : ");
 			int inputNumber = GuessGame.getUserInput() ;
 			

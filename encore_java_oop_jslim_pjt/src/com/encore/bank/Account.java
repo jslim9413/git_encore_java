@@ -8,7 +8,6 @@ public class Account {
 	private int 	balance ;
 	public Account() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Account(String custId, String custName, String accountNumber, int balance) {
 		super();

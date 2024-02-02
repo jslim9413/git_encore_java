@@ -6,7 +6,11 @@ public class AryMain {
 		
 		// 참조타입의 배열 선언으로 사용하기 위해서는 객체 생성이 필요하다.
 		// 선언과 동시에 객체 생성 완료!!
-		int [] ary = new int [ 10 ] ;  
+		int [] ary = null ;
+		
+		// 어디선가 객체 생성이 이루어져야 한다.
+		ary = new int [10] ; 
+		
 		System.out.println("배열의 길이 - " + ary.length ); 
 		
 		Random random = new Random();

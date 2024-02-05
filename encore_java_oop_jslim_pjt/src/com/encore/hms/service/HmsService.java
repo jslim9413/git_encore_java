@@ -43,8 +43,16 @@ public class HmsService {
 		return (idx-1) + "번지에 데이터를 담았습니다." ; 
 	}
 	
-	public void setAry(Person per) {
+	private void setAry(Person per) {
 		perAry[idx++] = per ; 
+	}
+	
+	public Person [] getAry() {
+		return perAry ; 
+	}
+	
+	public int getIdx() {
+		return idx ; 
 	}
 }
 

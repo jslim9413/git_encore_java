@@ -22,6 +22,15 @@ public class EmployeeDTO extends Person{
 	public String employeeInfo() {
 		return super.personInfo() + ", dept=" + dept ;
  	}
-	
-	
+	@Override
+	public String personInfo() {
+		return super.personInfo() + ", dept=" + dept ;
+ 	}
+
 }
+
+
+
+
+
+

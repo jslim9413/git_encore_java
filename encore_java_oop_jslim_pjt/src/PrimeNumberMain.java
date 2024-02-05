@@ -21,7 +21,7 @@ public class PrimeNumberMain {
 		}
 		boolean isFlag = true ; 
 		for(int idx = 2 ; idx < inputNumber ; idx++  ) {
-			if( inputNumber % 2 == 0 ) { // 만족하면 소수가 아니므로 
+			if( inputNumber % idx == 0 ) { // 만족하면 소수가 아니므로 
 				isFlag = false ; 
 				break ;
 			} 

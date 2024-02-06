@@ -38,14 +38,20 @@ public class SubwayView {
 		
 		// 승차역 정보 출력 및 선택
 		printStationList(stations) ; 
-		StationDTO startStation = stations[selectNumber(stations, "승차")] ;
+		StationDTO startStation = stations[ selectNumber(stations, "승차") ] ;
 		
 		// 하차역 정보 출력 및 선택 
 		printStationList(stations) ;
-		StationDTO endStation   = stations[selectNumber(stations, "하차")] ;
+		StationDTO endStation   = stations[ selectNumber(stations, "하차") ] ;
 		
 		int chargedFee = service.chargeFree(card, startStation, endStation) ; 
-	
+		
+		System.out.println("chargedFee : " + chargedFee); 
+		if(chargedFee >= 0 ) {
+			printSuccess(card, startStation, endStation, chargedFee) ; 
+		}else {
+			printFail() ;  
+		}
 	}
 	
 	// 역 정보 출력 
@@ -65,12 +71,15 @@ public class SubwayView {
 	요금 정산 성공 메시지를 출력
 	*/
 	public void printSuccess(CardDTO card, StationDTO start, StationDTO end, int chargedFee) {
-		
+		System.out.println("정상 처리되었습니다.");
+		System.out.println("승차역은 " + start.getName() +"역이고 하차역은 " + end.getName() ); 
+		System.out.println("요금은 " + chargedFee +"원이며 , 잔액은 " + card.getBalance() + "원 입니다.");
 	}
 	
 	// 요금 정산 실패 메시지 출력 
 	public void printFail() {
-		
+		System.out.println("잔액이 부족합니다.");
+		System.out.println("직원에게 문의하세요.");
 	}
 	
 	/**

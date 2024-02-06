@@ -54,7 +54,74 @@ public class HmsService {
 	public int getIdx() {
 		return idx ; 
 	}
+	
+	// 찾기
+	public Person searchPerson(String name) {
+		Person person = null ;
+		for(int idx=0 ; idx < perAry.length ; idx++) {
+			person = perAry[idx];
+			if(person != null) {
+				if(person.getName().equals(name)) {
+					return person ; 
+				}
+			}
+		}
+		return null ; 
+	}
+	// 수정
+	// deep copy 방법
+	// 1. 배열객체가 가지고 있는 ary.clone();
+	// 2. Arrays.copyOf(ary , ary.length) ;  
+	public Person updatePerson(String name) {
+		/* 1.
+		Person[] copyAry = perAry.clone();
+		
+		2.
+		import java.util.Arrays ; 
+		Person[] copyAry = Arrays.copyOf(perAry, perAry.length) ; 
+		
+		System.out.println("original ary address : "+perAry);
+		System.out.println("copy     ary address : "+copyAry); 
+		*/
+		
+		return searchPerson(name) ; 
+	}
+	
+	public boolean removePerson(String name) {
+		for(int i = 0 ; i < perAry.length ; i++) {
+			Person person = perAry[i];
+			if( person != null ) {
+				if( person.getName().equals(name) ) {
+					for(int j = i ; j < perAry.length-1 ; j++) {
+						perAry[j] = perAry[j+1];
+					}
+					idx = idx - 1 ;  
+					perAry[idx] = null ;
+					return true ;  
+				}
+			}
+		}
+		return false ; 
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -2,6 +2,9 @@ package com.encore.hms.view;
 
 import java.util.Scanner;
 
+import com.encore.hms.domain.EmployeeDTO;
+import com.encore.hms.domain.StudentDTO;
+import com.encore.hms.domain.TeacherDTO;
 import com.encore.hms.domain.sup.Person;
 import com.encore.hms.service.HmsService;
 import com.encore.hms.util.HmsType;
@@ -61,16 +64,49 @@ public class HmsView {
 	HmsView - HmsSerive(searchPerson(String name))
 	*/
 	public void search() {
-		
+		System.out.println();
+		System.out.println(">>> search <<<<");
+		System.out.print("이름을 입력하세요 : ");
+		scan.nextLine();
+		String name = scan.nextLine();
+        Person person = service.searchPerson(name);
+        if(person == null) {
+        	System.out.println("정보가 존재하지 않습니다");
+        }else {
+        	System.out.println( person.personInfo() ); 
+        }
 	}
 	/*
 	Scanner 객체를 이용해서 찾고자하는 이름을 입력받아서 
 	존재할 경우 해당 객체의 학생-학번, 강사-과목, 직원-부서를 수정하고
 	'정보를 수정하였습니다' 라는 메시지 출력
-	HmsView - HmsSerive(updatePerson(String name, String comm))
+	HmsView - HmsSerive(updatePerson(String name))
 	*/
 	public void update() {
-		
+		System.out.println();
+		System.out.println(">>> 수정 <<<");
+		System.out.print("이름을 입력하세요 : ");
+		String name = scan.next();
+		Person obj = service.updatePerson(name) ; 
+		if(obj != null) {
+			if (obj instanceof StudentDTO) {
+				System.out.print("수정할 학번을 입력하세요 : ");
+				String stuId = scan.next();
+				((StudentDTO)obj).setStuId(stuId);
+			}
+			if (obj instanceof TeacherDTO) {
+				System.out.print("수정할 과목을 입력하세요 : ");
+				String subject = scan.next();
+				((TeacherDTO)obj).setSubject(subject);
+			}
+			if (obj instanceof EmployeeDTO) {
+				System.out.print("수정할 부서를 입력하세요 : ");
+				String dept = scan.next();
+				((EmployeeDTO)obj).setDept(dept);
+			}
+		}else {
+			System.out.println("정보가 존재하지 않습니다");
+		}
 	}
 	/*
 	Scanner 객체를 이용해서 찾고자하는 이름을 입력받아서 
@@ -81,7 +117,21 @@ public class HmsView {
 	HmsView - HmsSerive(removePerson(String name))
  	*/
 	public void remove() {
-		
+		System.out.println();
+		System.out.println(">>> remove <<<<");
+		System.out.print("이름을 입력하세요 : ");
+		String name = scan.next();
+        Person person = service.searchPerson(name);
+        if(person == null) {
+        	System.out.println("정보가 존재하지 않습니다");
+        }else {
+        	 boolean flag = service.removePerson(name);
+        	 if(flag == true) {
+        		 System.out.println("객체를 삭제하였습니다");
+        	 }else {
+        		 System.out.println("이유를 모르지만 작업 수행 미이행");
+        	 }
+        }
 	}
 	
 	public void perPrint() {

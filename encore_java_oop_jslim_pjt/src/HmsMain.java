@@ -18,6 +18,7 @@ public class HmsMain {
 		msg = service.makePerson(HmsType.EMP, "임정섭", 20, "서울", "교육 서비스팀");
 		System.out.println(msg);
 		*/
+		
 		HmsView view = new HmsView();
 		view.mainMenu(); 
 	}

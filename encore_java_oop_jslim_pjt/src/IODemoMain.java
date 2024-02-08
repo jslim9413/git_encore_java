@@ -46,6 +46,7 @@ public class IODemoMain {
 		*/
 		
 		// case04.
+		/*
 		String msg = "aBc" ; 
 		System.out.println( msg.equals("abc") ) ; 
 		System.out.println( msg.equalsIgnoreCase("abc") )  ; 
@@ -61,9 +62,39 @@ public class IODemoMain {
 		System.out.println( msg.charAt(1) ); 
 		System.out.println( msg.substring(2) ); 
 		System.out.println( msg.substring(2, 5) );
+		*/
+		
+		// case05. 
+		/*
+		boolean flag = demo.outputFile() ;
+		String msg = (flag == true) ? "저장성공" : "저장실패" ; 
+		System.out.println(msg); 
+		*/
+		
+		// case06. 
+		/*
+		boolean flag = demo.outputObjFile() ;
+		String msg = (flag == true) ? "저장성공" : "저장실패" ; 
+		System.out.println(msg); 
+		*/
+		
+		// case07.
+		// demo.outputSerializable();
+		demo.inputSerializable(); 
+		
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

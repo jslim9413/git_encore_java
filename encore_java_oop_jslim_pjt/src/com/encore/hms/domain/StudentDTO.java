@@ -1,4 +1,6 @@
 package com.encore.hms.domain;
+import java.io.Serializable;
+
 import com.encore.hms.domain.sup.Person;
 
 public class StudentDTO extends Person {

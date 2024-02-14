@@ -1,6 +1,4 @@
-import com.encore.hms.service.HmsService;
-import com.encore.hms.util.HmsType;
-import com.encore.hms.view.HmsView;
+import com.encore.hms.view.HmsListView;
 
 // 1. stu 2. tea 3. emp
 // enum 
@@ -19,7 +17,13 @@ public class HmsMain {
 		System.out.println(msg);
 		*/
 		
+		/* Array code 
 		HmsView view = new HmsView();
+		view.mainMenu();
+		*/ 
+		
+		// ArrayList 
+		HmsListView view = new HmsListView();
 		view.mainMenu();
 		
 	}

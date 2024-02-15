@@ -1,8 +1,7 @@
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 import java.util.Vector;
 
 import com.encore.hms.domain.StudentDTO;
@@ -44,9 +43,12 @@ public class ListDemoMain {
 		System.out.println( col02.get(1) ) ;
 		
 		
-		Collection col03 = new HashSet() ; 
+		Set<String> col03 = new HashSet() ; 
 		col03.add("C");
-		// col03.add("C"); -- 확인
+		col03.add("C");
+		col03.add("C");
+		System.out.println(col03);
+		
 	}
 
 }

@@ -1,6 +1,5 @@
 package com.encore.mvc.domain;
 
-
 public class PostRequestDto {
 	
 	private String title ; 
@@ -42,3 +41,4 @@ public class PostRequestDto {
 	
 	
 }
+

@@ -24,7 +24,8 @@ public class EncoreServiceImpl {
 	public int insertService(Map<String, String> params) {
 		System.out.println(">>> Dao insertService <<< "); 
 		System.out.println(">>> params : " + params); 
-		return 1 ; 
+		int flag = dao.insertRow(params);
+		return flag ; 
 	}
 }
 

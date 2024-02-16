@@ -2,6 +2,7 @@ package com.encore.movie.guessgame;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public class MovieServiceImpl {
 	
@@ -21,7 +22,7 @@ public class MovieServiceImpl {
 	 * Random( nextInt() ) 
 	 */
 	public String selectSentence() {
-		return null ; 
+        return null ; 
 	}
 	/*
 	 * 게임의 초기화 화면을 출력하고 숨겨진 영화제목 반환

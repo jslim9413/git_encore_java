@@ -27,8 +27,19 @@ public class GraphMain {
 		//DFS 탐색.....
 		service.dfs(node1);
 		
+		System.out.println();
+		System.out.println();
+		System.out.println("BFS"); 
 		
-
+		// 1 ~ 8 노드 생성
+		// 생성한(1 ~ 8) 노드의 연결 
+		// 1. 배열, 2. GraphNode
+		System.out.println(">>> array version ") ; 
+		int [][] ary = {{}, {2,3,7}, {1,3,5}, {1,2}, {6,8}, {2}, {4,7,8}, {1,6}, {4,6}};
+		boolean [] visit = new boolean[9];
+		
+		service.bfs(ary, visit); 
+		
 	}
 
 }

@@ -32,9 +32,12 @@ public class MvcMain {
 		*/
 		
 		System.out.println(">>> 전체 출력<<<<");
-		// SelectController select = new SelectController() ;
-		// List<PostResponseDto> list = select.execute();
+		SelectController select = new SelectController() ;
+		List<PostResponseDto> list = select.execute();
 		// 출력
+		for(PostResponseDto dto : list) {
+			System.out.println(dto); 
+		}
 		
 	}
 

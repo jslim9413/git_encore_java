@@ -1,8 +1,10 @@
 package com.encore.mvc.model.service;
 
+import java.util.List;
 import java.util.Map;
 
 import com.encore.mvc.domain.PostRequestDto;
+import com.encore.mvc.domain.PostResponseDto;
 import com.encore.mvc.model.sql.EncoreDao;
 
 // Service 는 Dao 갖는다.
@@ -27,7 +29,14 @@ public class EncoreServiceImpl {
 		int flag = dao.insertRow(params);
 		return flag ; 
 	}
+	public List<PostResponseDto> selectService() {
+		System.out.println(">>> Dao insertService <<< "); 
+		return dao.selectRow() ; 
+	}
 }
+
+
+
 
 
 

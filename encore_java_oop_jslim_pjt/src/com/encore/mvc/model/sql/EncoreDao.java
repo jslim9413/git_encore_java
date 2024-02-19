@@ -3,6 +3,8 @@ package com.encore.mvc.model.sql;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -84,11 +86,35 @@ public class EncoreDao {
 	// PostResponseDto - idx, title, content, writer
 	// return list.add(PostResponseDto)
 	public List<PostResponseDto> selectRow() {
-		System.out.println(">>> Dao selectRow <<< ");
+		System.out.println(">>> Dao selectRow <<< "); 
+		Connection 			conn 	= null ;
+		PreparedStatement 	pstmt 	= null ;
+		ResultSet           rset    = null ; 
 		
 		String query = "select idx, title, content, writer from post_tbl"; 
-		
-		return null ; 
+		List<PostResponseDto> lst = new ArrayList<PostResponseDto>();
+		try {
+			conn  = DriverManager.getConnection(URL, ID, PASSWORD) ; 
+			pstmt = conn.prepareStatement(query);
+			rset  = pstmt.executeQuery() ; 
+			while( rset.next() ) {
+				int      idx   = rset.getInt(1);
+				String title   = rset.getString(2);
+				String content = rset.getString(2);
+				String writer  = rset.getString(2);
+				PostResponseDto response = new PostResponseDto(idx, title, content, writer);
+				lst.add(response);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(conn != null) { conn.close() ; } 
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return lst ;  
 		
 	}
 	

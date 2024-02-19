@@ -62,6 +62,27 @@ public class GraphServiceImpl {
 			}
 		}
 	}
+	public void bfs(GraphNode node) {
+		Queue<GraphNode> queue = new LinkedList<GraphNode>();
+		
+		// 1 데이터이면서 2차원배열의 행 인덱스  
+		queue.offer(node);
+		boolean [] visit = new boolean[9] ;
+		visit[node.getData()] = true ; 
+		
+		while(!queue.isEmpty()) {
+			GraphNode g = queue.poll();
+			System.out.print(g.getData() + "\t") ; 
+			for(int idx = 0 ; idx < g.getCorLst().size() ; idx ++) {
+				// 데이터이지만 인덱스로 사용
+				GraphNode data = g.getCorLst().get(idx) ; 
+				if( !visit[data.getData()] ) {
+					visit[data.getData()] = true ; 
+					queue.offer(data);
+				}
+			}
+		}
+	}
 }
 
 

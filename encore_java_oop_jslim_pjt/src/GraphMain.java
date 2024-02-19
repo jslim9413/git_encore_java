@@ -34,11 +34,38 @@ public class GraphMain {
 		// 1 ~ 8 노드 생성
 		// 생성한(1 ~ 8) 노드의 연결 
 		// 1. 배열, 2. GraphNode
+		
+		// bsf 배열이 아닌 Node 변환 
+		
 		System.out.println(">>> array version ") ; 
 		int [][] ary = {{}, {2,3,7}, {1,3,5}, {1,2}, {6,8}, {2}, {4,7,8}, {1,6}, {4,6}};
 		boolean [] visit = new boolean[9];
-		
 		service.bfs(ary, visit); 
+		
+		System.out.println();
+		System.out.println();
+		
+		System.out.println(">>> GraphNode version ") ; 
+		GraphNode node01 = service.makeNode(1) ;
+		GraphNode node02 = service.makeNode(2) ;
+		GraphNode node03 = service.makeNode(3) ;
+		GraphNode node04 = service.makeNode(4) ;
+		GraphNode node05 = service.makeNode(5) ;
+		GraphNode node06 = service.makeNode(6) ;
+		GraphNode node07 = service.makeNode(7) ;
+		GraphNode node08 = service.makeNode(8) ;
+		
+		// 생성한(1 ~ 6) 노드의 방향을 연결 
+		service.makeEdge(node01, node02);service.makeEdge(node01, node03);service.makeEdge(node01, node07); 
+		service.makeEdge(node02, node01);service.makeEdge(node02, node03);service.makeEdge(node02, node05);
+		service.makeEdge(node03, node01);service.makeEdge(node03, node02);
+		service.makeEdge(node04, node06);service.makeEdge(node04, node08);
+		service.makeEdge(node05, node02);
+		service.makeEdge(node06, node04);service.makeEdge(node06, node07);service.makeEdge(node06, node08);
+		service.makeEdge(node07, node01);service.makeEdge(node07, node06);
+		service.makeEdge(node08, node04);service.makeEdge(node08, node06);
+		
+		service.bfs(node01); 
 		
 	}
 

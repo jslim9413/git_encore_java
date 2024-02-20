@@ -20,7 +20,7 @@ public class EncoreInteger implements Comparable<EncoreInteger> {
 
 	@Override
 	public int compareTo(EncoreInteger o) {
-		return this.data - o.data ; 
+		return -(this.data - o.data) ; 
 	}
 	
 	

@@ -1,75 +1,21 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.PriorityQueue;
 
 public class TestCaseMain {
 
 	public static void main(String[] args) {
-		final String driver = "org.mariadb.jdbc.Driver";
-		final String DB_IP = "localhost";
-		final String DB_PORT = "3306";
-		final String DB_NAME = "encore";
-		final String DB_URL = 
-				"jdbc:mariadb://" + DB_IP + ":" + DB_PORT + "/" + DB_NAME;
+		PriorityQueue<Task> pq = new PriorityQueue<>();
 
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+        pq.add(new Task(4, "키보드 청소하기"));
+        pq.add(new Task(1, "알고리즘 문제 풀기"));
+        pq.add(new Task(3, "취업 공고 찾아보기"));
+        pq.add(new Task(2, "강의 듣기"));
 
-		try {
-			Class.forName(driver);
-			conn = DriverManager.getConnection(DB_URL, "root", "123456789");
-			if (conn != null) {
-				System.out.println("DB 접속 성공");
-			}
-
-		} catch (ClassNotFoundException e) {
-			System.out.println("드라이버 로드 실패");
-			e.printStackTrace();
-		} catch (SQLException e) {
-			System.out.println("DB 접속 실패");
-			e.printStackTrace();
-		}
-		try {
-			String sql = "select * from department";
-
-			pstmt = conn.prepareStatement(sql);
-
-			rs = pstmt.executeQuery();
-			String userId = null;
-			String password = null;
-			String name = null;
-			while (rs.next()) {
-				userId = rs.getString(1);
-				password = rs.getString(2);
-				name = rs.getString(3);
-			}
-
-			System.out.println(userId);
-			System.out.println(password);
-			System.out.println(name);
-
-		} catch (SQLException e) {
-			System.out.println("error: " + e);
-		} finally {
-			try {
-				if (rs != null) {
-					rs.close();
-				}
-				if (pstmt != null) {
-					pstmt.close();
-				}
-
-				if (conn != null && !conn.isClosed()) {
-					conn.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-
+        while (!pq.isEmpty()) {
+            Task task = pq.poll();
+            System.out.println("[중요도: " + task.getPriority() + "]" + task.getTitle());
+        }
 	}
 
 }
+
+
